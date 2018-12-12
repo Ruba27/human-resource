@@ -5,17 +5,16 @@ Ruba Esawi && SAnaa Ghanem
  * and open the template in the editor.
  */
 package examples;
-import java.awt.TextField;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java .awt.TextArea;
+import java.sql.ResultSetMetaData;
 /**
  *
  * @author User
  */
-public class Department extends Find {
+public class Department extends Find  {
 
     /**
      * Creates new form Department
@@ -34,17 +33,25 @@ public class Department extends Find {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        manger = new javax.swing.JLabel();
+        name = new javax.swing.JTextField();
+        manger_name = new javax.swing.JTextField();
+        insert = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+        update = new javax.swing.JButton();
+        idd = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
+        select = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        selected = new javax.swing.JTextField();
+        condition = new javax.swing.JTextField();
+        old = new javax.swing.JLabel();
+        updatee1 = new javax.swing.JTextField();
+        newupdate = new javax.swing.JLabel();
+        updatee = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(828, 770));
@@ -52,63 +59,63 @@ public class Department extends Find {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Department name");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Manger name");
+        manger.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        manger.setText("Manger name");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                nameActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        manger_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                manger_nameActionPerformed(evt);
             }
         });
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jButton10.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Capture.PNG")); // NOI18N
-        jButton10.setText("Insert");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        insert.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        insert.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Capture.PNG")); // NOI18N
+        insert.setText("Insert");
+        insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                insertActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\d.PNG")); // NOI18N
-        jButton2.setText("Delete");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        delete.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        delete.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\d.PNG")); // NOI18N
+        delete.setText("Delete");
+        delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                deleteActionPerformed(evt);
             }
         });
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jButton11.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\up.PNG")); // NOI18N
-        jButton11.setText("Update");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        update.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        update.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\up.PNG")); // NOI18N
+        update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                updateActionPerformed(evt);
             }
         });
 
-        jButton12.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\se.PNG")); // NOI18N
-        jButton12.setText("Select");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        idd.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        idd.setText("ID");
+
+        id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                idActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("ID");
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        select.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        select.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\se.PNG")); // NOI18N
+        select.setText("Select");
+        select.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                selectActionPerformed(evt);
             }
         });
 
@@ -116,125 +123,179 @@ public class Department extends Find {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Select what?");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Condition Select");
+
+        selected.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectedActionPerformed(evt);
+            }
+        });
+
+        old.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        old.setText("old Value update");
+
+        newupdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        newupdate.setText("New Value Update");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(idd, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(manger)
+                .addGap(18, 18, 18)
+                .addComponent(manger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 80, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(insert, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton2)
+                        .addComponent(delete)
                         .addGap(26, 26, 26)
-                        .addComponent(jButton11)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButton12))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(update)
+                        .addGap(18, 18, 18)
+                        .addComponent(select))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(selected, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(old, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updatee1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43)
+                        .addComponent(newupdate)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(updatee, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manger, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manger_name, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(idd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(updatee, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(old, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updatee1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(newupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(insert, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(update, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(selected, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(condition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_nameActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void manger_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manger_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_manger_nameActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
         Statement stmt;
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
-            String url = "jdbc:mysql://localhost:3306/human-resource";
-            //database schema name: eng
+            String url = "jdbc:mysql://localhost:3306/human-resource";//  to make connect to sql
+            //database schema name: human-resource
 
-            Connection con = DriverManager.getConnection( url,"root", "16121990" );
+            Connection con = DriverManager.getConnection( url,"root", "16121990" );// add user name and password
             //username : root
-            //password : root
+            //password : 16121990
 
             stmt = con.createStatement();
 
             String name,manger,id;
-            id=this.jTextField4.getText();
-            name=this.jTextField2.getText();
-             manger=this.jTextField3.getText();
+           // id=this.jTextField4.getText();
+            name=this.name.getText();
+             manger=this.manger_name.getText();
             
-            stmt.executeUpdate("INSERT INTO department (Did,Dname,Mangername)" +" VALUES ('"+id+"','"+name+"','"+manger+"')");
+            stmt.executeUpdate("INSERT INTO department (Dname,Mangername)" +" VALUES ('"+name+"','"+manger+"')");
+            // these statment to insert to department table
             con.close();
         }
 
         catch(Exception ee){
             System.out.println(ee.toString());
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_insertActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         Statement stmt;
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
-            String url = "jdbc:mysql://localhost:3306/human-resource";
-            //database schema name: eng
+            String url = "jdbc:mysql://localhost:3306/human-resource";// to connect to sql
+            //database schema name: human-resource
 
             Connection con = DriverManager.getConnection( url,"root", "16121990" );
             //username : root
-            //password : root
+            //password : 16121990
 
             stmt = con.createStatement();
 
             String id;
-            id=this.jTextField4.getText();
+            id=this.id.getText();
 
             stmt.executeUpdate("Delete From department Where Did =('"+id+"')");
+            //delete from row wher id
             con.close();
         }
 
@@ -242,29 +303,29 @@ public class Department extends Find {
             System.out.println(ee.toString());
         }        // TODO add your handling code here:
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_deleteActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
         Statement stmt;
 
         try{
             Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://localhost:3306/human-resource";
-            //database schema name: eng
+            //database schema name: human-resource
 
             Connection con = DriverManager.getConnection( url,"root", "16121990" );
             //username : root
-            //password : root
+            //password : 16121990
 
             stmt = con.createStatement();
 
-            String name,id;
-            id=this.jTextField4.getText();
-            name=this.jTextField2.getText();
+             String newValue,oldVlaue,id;
+             id=this.id.getText();// put id 
+            newValue=this.updatee.getText();// put new value that upadted
+            oldVlaue=this.updatee1.getText();// old coloums which need update value
 
-            stmt.executeUpdate("update department set Dname = ('"+name+"')where Did=('"+id+"')");
-            con.close();
+           stmt.executeUpdate("update department set "+oldVlaue+" = ('"+newValue+"')where Did=('"+id+"')");   // statment to make update         con.close();
         }
 
         catch(Exception ee){
@@ -272,9 +333,13 @@ public class Department extends Find {
         }        // TODO add your handling code here:
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_updateActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idActionPerformed
+
+    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
 
         Statement stmt;
 
@@ -282,42 +347,50 @@ public class Department extends Find {
             Class.forName("com.mysql.jdbc.Driver");
 
             String url = "jdbc:mysql://localhost:3306/human-resource";
-            //database schema: eng
+            //database schema: human-resource
 
-            Connection con = DriverManager.getConnection( url,"root", "16121990" );
+            Connection con = DriverManager.getConnection( url,"root", "16121990" );// connect to sql
 
-            ResultSet rs;
+            ResultSet query_select;
 
             stmt = con.createStatement();
 
-            String Result="",count="",sal;
             //String adrs=jComboBox36.getSelectedItem().toString();
 
-            rs = stmt.executeQuery("select * from department");
+            String selection,select_condition;
+            selection=selected.getText();
+            select_condition=condition.getText();
 
-            int i=0 ;
+            query_select = stmt.executeQuery("select "+selection+" from department where "+select_condition+"");
+            ResultSetMetaData rsm = query_select.getMetaData();
 
-            while(rs.next()){
-                count+=rs.getObject(1).toString()+" - "+rs.getObject(2).toString()+"\n ";//+rs.getObject(3).toString()+"\n";
-                i++;
-            }
+            String Result="";
 
-            Result="\nNumber of employee who live in  are: "+i+" Names: \n"+ count+"\n==========================";
+            String count="";
+            while(query_select.next()){
+                for(int j=1;j<rsm.getColumnCount()+1;j++){
+                    count+=query_select.getObject(j).toString()+" - "+"\n";//+rs.getObject(2).toString()+"\n ";//+rs.getObject(3).toString()+"\n";
 
+                }
+
+                Result="  \n"+ count+"\n==========================\n";//}
+            //TextArea JTextArea1=new TextArea();
             jTextArea1.append(Result);
+        }
 
-            con.close();
+        con.close();
+
         }
 
         catch(Exception ee){
             System.out.println(ee.toString());
         }
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_selectActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void selectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_selectedActionPerformed
  
   
     /**
@@ -356,17 +429,25 @@ public class Department extends Find {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField condition;
+    private javax.swing.JButton delete;
+    private javax.swing.JTextField id;
+    private javax.swing.JLabel idd;
+    private javax.swing.JButton insert;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel manger;
+    private javax.swing.JTextField manger_name;
+    private javax.swing.JTextField name;
+    private javax.swing.JLabel newupdate;
+    private javax.swing.JLabel old;
+    private javax.swing.JButton select;
+    private javax.swing.JTextField selected;
+    private javax.swing.JButton update;
+    private javax.swing.JTextField updatee;
+    private javax.swing.JTextField updatee1;
     // End of variables declaration//GEN-END:variables
 }
